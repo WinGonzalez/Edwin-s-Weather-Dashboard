@@ -1,0 +1,42 @@
+.rounded-section {
+  border: 0;
+  border-radius: 0.25rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+body.rounded-section {
+  background-color: teal;
+}
+header.rounded-section {
+  border-radius: 0 0 1rem 1rem;
+  background-color:rgb(38, 246, 87);
+}
+
+#Search-Container.rounded-section {
+  background-color: rgb(184, 236, 184);
+}
+
+#Search-History.rounded-section {
+  background-color:rgb(184, 236, 184);
+}
+
+#No-Search.rounded-section {
+  background-color: rgb(184, 234, 236);
+}
+
+#Current-Weather.rounded-section {
+  background-color: rgb(244, 110, 26);
+}
+
+#Forecast.rounded-section {
+  background-color: rgb(247, 244, 108);
+}
+
+#Forecast .rounded-section {
+  background-color: rgb(248, 244, 6);
+  flex-shrink: 1;
+}
+
+.rounded-section button {
+  border-radius: 1rem;
+}
