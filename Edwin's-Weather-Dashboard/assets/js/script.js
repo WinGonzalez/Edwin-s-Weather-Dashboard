@@ -89,16 +89,6 @@ let SearchCity = function(event) {
     }
 }
 
-/**
- * 
- * @param {number} index 
- */
-let DisplayCity = function(index) {
-    SECTION_NoSearch.attr('hidden', true);
-    SECTION_CurrentWeather.attr('hidden', false);
-    SECTION_Forecast.attr('hidden', false);
-
-    IsLoading_Page = true;
 
     try {
         var apiCall = 
