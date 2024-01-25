@@ -1,14 +1,17 @@
-
+// API Call: https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 // Documentation: https://openweathermap.org/forecast5
 
-//#regions class & function definitions 
+//#region Class and Function Definitions
 class WeatherLocation {
-  constructor(city, lat, lon) {
-      this.city = city;
-      this.lat = lat;
-      this.lon = lon;
-  }
+    constructor(city, lat, lon) {
+        this.city = city;
+        this.lat = lat;
+        this.lon = lon;
+    }
 }
+//#endregion
+
+//#region Local Storage Initialization
 var IsInitSearches = JSON.parse(localStorage.getItem('Searches'));
 if (IsInitSearches == null) {
     localStorage.setItem('Searches', JSON.stringify([]));
@@ -34,11 +37,11 @@ const BTN_SearchCity = $('#Search-City');
 const BTN_ResetSearchHistory = $('#Reset-Search-History');
 
 var SearchHistory = JSON.parse(localStorage.getItem('Searches'));
-
+//#endregion
 
 //#region Runtime Functions
 /**
- * Active when input entered for new location through the input forms
+ * Used when searching a new city through the input forms
  * @param {Event} event 
  */
 let SearchCity = function(event) {
@@ -51,13 +54,13 @@ let SearchCity = function(event) {
             return;
         }
     });
-// API Call: https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
+
     try {
         var apiCall = 
             'http://api.openweathermap.org/geo/1.0/direct?q='
             + searchCityInput +
             '&limit=1&appid='
-            + '9707379336d03d3a0f516645dafd5f1b';
+            + '420c006df726b132282a06990426589b';
         
         fetch(apiCall)
         .then((response) => {
@@ -107,10 +110,11 @@ let DisplayCity = function(index) {
             '&lon=' 
             + SearchHistory[index].lon +
             '&appid='
-            + '9707379336d03d3a0f516645dafd5f1b' +
+            + '420c006df726b132282a06990426589b' +
             '&units=imperial';
         fetch(apiCall)
         .then((response) => {
+            console.log(response)
             if (!response) {
                 throw true;
             }
@@ -163,11 +167,12 @@ let DisplayHistory = function(index) {
     SECTION_SearchHistory.append(historyButton);
 }
 
+//#endregion
 
 //#region Add Event Listeners
 BTN_SearchCity.on('click', SearchCity);
 BTN_ResetSearchHistory.on('click', ResetInputs)
-
+//#endregion
 
 SearchHistory.forEach((history, index) => {
     DisplayHistory(index);
