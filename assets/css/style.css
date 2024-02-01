@@ -28,6 +28,9 @@ header.rounded-section {
 #Forecast.rounded-section {
   background-color: rgb(247, 244, 108);
 }
+#Body{
+  background-color: rgb(255, 0, 0);
+}
 
 #Forecast .rounded-section {
   background-color: rgb(248, 244, 6);
